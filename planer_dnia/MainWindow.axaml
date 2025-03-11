@@ -6,4 +6,21 @@
         x:Class="planer_dnia.MainWindow"
         Title="planer_dnia">
     
+        <StackPanel Orientation="Vertical">
+                <TextBox Name="TextBox" Width="200" Height="30" Watermark="Wpisz nazwe zadania"/>
+                <ComboBox Width="200" Margin="10">
+                        <ComboBoxItem Content="Praca"/>
+                        <ComboBoxItem Content="Relaks"/>
+                        <ComboBoxItem Content="Zakupy"/>
+                </ComboBox>
+                <Button x:Name="SubmitButton" Content="Dodaj"
+                        Width="200" Margin="0, 20, 0, 0"
+                        HorizontalContentAlignment="Center"
+                />
+                
+                
+        </StackPanel>
+        
+        
+        
 </Window>
