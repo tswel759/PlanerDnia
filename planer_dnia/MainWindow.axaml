@@ -7,19 +7,38 @@
         Title="planer_dnia">
     
         <StackPanel Orientation="Vertical">
+                <StackPanel>
                 <TextBox Name="TextBox" Width="200" Height="30" Watermark="Wpisz nazwe zadania"/>
                 <ComboBox Width="200" Margin="10">
                         <ComboBoxItem Content="Praca"/>
                         <ComboBoxItem Content="Relaks"/>
                         <ComboBoxItem Content="Zakupy"/>
                 </ComboBox>
-                <Button x:Name="SubmitButton" Content="Dodaj"
+                
+                <Button x:Name="SubmitButton" Content="Submit" Click="Zadanie"
                         Width="200" Margin="0, 20, 0, 0"
                         HorizontalContentAlignment="Center"
                 />
+                </StackPanel>
+                <Grid>
+                        <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="*"/>
+                                <RowDefinition Height="2"/>
+                                <RowDefinition Height="3"/>
+                        </Grid.RowDefinitions>
+                        <TextBlock Grid.Row="0" Grid.Column="0" Margin="10" Text=""/>
+                   <ComboBox Grid.Row="1" Grid.Column="0" Margin="10" />
+                   <CheckBox Grid.Row="2" Grid.Column="0" Margin="10" Content="Czy ukonczone"/>
+                   <Button Grid.Row="3" x:Name="Reset" Content="Usun zadanie" Click="Usun"
+                           Width="200" Margin="20"/>
+                        
+                        
+                </Grid>
                 
                 
         </StackPanel>
+        
         
         
         
