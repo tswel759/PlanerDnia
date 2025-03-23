@@ -5,42 +5,35 @@
         mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
         x:Class="planer_dnia.MainWindow"
         Title="planer_dnia"
-        Width="500" Height="500">
+        Width="400" Height="400">
     
-        <StackPanel Orientation="Vertical">
-                <StackPanel>
-                <TextBox Name="TextBox" Width="200" Height="30" Watermark="Wpisz nazwe zadania"/>
-                <ComboBox Width="200" Margin="10">
+        <StackPanel Orientation="Vertical" Margin="10">
+                
+                <StackPanel Orientation="Horizontal">
+                <TextBox x:Name="NazwaZadania" Width="200" Watermark="Wpisz zadania"/>
+                <ComboBox x:Name="KategoriaZadania" Width="150">
                         <ComboBoxItem Content="Praca"/>
                         <ComboBoxItem Content="Relaks"/>
                         <ComboBoxItem Content="Zakupy"/>
                 </ComboBox>
                 
-                <Button x:Name="SubmitButton" Content="Submit" Click="Zadanie"
-                        Width="200" Margin="0, 20, 0, 0"
-                        HorizontalContentAlignment="Center"
-                />
+                <Button Content="Dodaj" Click="DodajZadanie"/>
                 </StackPanel>
-                <Grid>
-                        <Grid.RowDefinitions>
-                                <RowDefinition Height="Auto"/>
-                                <RowDefinition Height="*"/>
-                                <RowDefinition Height="2"/>
-                                <RowDefinition Height="3"/>
-                        </Grid.RowDefinitions>
-                        <TextBlock Grid.Row="0" Grid.Column="0" Margin="10" Text=""/>
-                   <ComboBox Grid.Row="1" Grid.Column="0" Margin="10" />
-                   <CheckBox Grid.Row="2" Grid.Column="0" Margin="10" Content="Czy ukonczone"/>
-                   <Button Grid.Row="3" x:Name="Reset" Content="Usun zadanie" Click="Usun"
-                           Width="200" Margin="20"/>
-                        
-                        
+                
+                <Grid Margin="10">
+                        <ItemsControl x:Name="ListaZadan">
+                                <ItemsControl.ItemTemplate>
+                                        <DataTemplate>
+                                                <Grid ColumnDefinitions="150, 100, 100, 80" Margin="5">
+                                                        <TextBlock Text="{Binding Nazwa}"/>
+                                                        <TextBlock Text="{Binding Kategoria}" Grid.Column="1"/>
+                                                        <CheckBox IsChecked="{Binding CzyUkonczone}" Grid.Column="2"/>
+                                                        <Button Content="Usuń" Click="UsunZadanie" Grid.Column="3"/>
+                                                </Grid>
+                                        </DataTemplate>
+                                </ItemsControl.ItemTemplate>
+                        </ItemsControl>
                 </Grid>
-                
-                
+                <TextBlock x:Name="Podsumowanie" Margin="10"/>
         </StackPanel>
-        
-        
-        
-        
 </Window>
