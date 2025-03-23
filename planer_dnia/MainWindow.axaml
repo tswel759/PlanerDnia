@@ -10,8 +10,8 @@
         <StackPanel Orientation="Vertical" Margin="10">
                 
                 <StackPanel Orientation="Horizontal">
-                <TextBox x:Name="NazwaZadania" Width="200" Watermark="Wpisz zadania"/>
-                <ComboBox x:Name="KategoriaZadania" Width="150">
+                <TextBox x:Name="NazwaZadania" Width="150" Watermark="Wpisz zadania"/>
+                <ComboBox x:Name="KategoriaZadania" Width="100">
                         <ComboBoxItem Content="Praca"/>
                         <ComboBoxItem Content="Relaks"/>
                         <ComboBoxItem Content="Zakupy"/>
@@ -20,20 +20,16 @@
                 <Button Content="Dodaj" Click="DodajZadanie"/>
                 </StackPanel>
                 
-                <Grid Margin="10">
-                        <ItemsControl x:Name="ListaZadan">
-                                <ItemsControl.ItemTemplate>
-                                        <DataTemplate>
-                                                <Grid ColumnDefinitions="150, 100, 100, 80" Margin="5">
-                                                        <TextBlock Text="{Binding Nazwa}"/>
-                                                        <TextBlock Text="{Binding Kategoria}" Grid.Column="1"/>
-                                                        <CheckBox IsChecked="{Binding CzyUkonczone}" Grid.Column="2"/>
-                                                        <Button Content="Usuń" Click="UsunZadanie" Grid.Column="3"/>
-                                                </Grid>
-                                        </DataTemplate>
-                                </ItemsControl.ItemTemplate>
-                        </ItemsControl>
+                <Grid x:Name="ListaZadan" Margin="10">
+                        <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="150"/>
+                                <ColumnDefinition Width="80"/>
+                                <ColumnDefinition Width="50"/>
+                                <ColumnDefinition Width="50"/>
+                        </Grid.ColumnDefinitions>
                 </Grid>
+                
                 <TextBlock x:Name="Podsumowanie" Margin="10"/>
+                
         </StackPanel>
 </Window>
