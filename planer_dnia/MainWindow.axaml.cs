@@ -1,9 +1,8 @@
 using Avalonia.Controls;
 using Avalonia.Interactivity;
 using System.Collections.Generic;
-using System.Linq;
 
-namespace planer_dnia;
+namespace planer_dnia
 {
     public partial class MainWindow : Window
     {
@@ -11,9 +10,16 @@ namespace planer_dnia;
         public MainWindow()
         {
             InitializeComponent();
-            AktualizujWidok();
         }
 
+        private void DodajZadanie(object? sender, RoutedEventArgs e)
+        {
+            if (NazwaZadania.Text != "" && KategoriaZadania.SelectedItem is ComboBoxItem kat)
+            {
+                zadania.Add(new Zadanie { Nazwa = NazwaZadania.Text, Kategoria = kat.Content.ToString() });
+                OdswiezListe();
+            }
+        }
         private void Zadanie(object? sender, RoutedEventArgs e)
         {
             throw new System.NotImplementedException();
